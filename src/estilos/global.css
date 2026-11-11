@@ -1,0 +1,270 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Paleta extraída do logótipo da Lavandaria Stella (OKLCH)
+     azul-petróleo (máquina / "LAVANDARIA")  oklch(0.46 0.083 228)
+     azul-água     (água / "Stella")         oklch(0.69 0.139 235)
+     azul-espuma   (bolhas / contornos)      oklch(0.70 0.045 212)
+   Se alterar estes valores, actualize também src/configuracao/cores.ts.
+   ========================================================================== */
+:root {
+  --fundo: oklch(0.985 0.008 220);
+  --texto: oklch(0.24 0.04 235);
+  --cartao: oklch(1 0 0);
+  --cartao-texto: oklch(0.24 0.04 235);
+  --suave: oklch(0.955 0.017 222);
+  --suave-texto: oklch(0.46 0.04 230);
+  --borda: oklch(0.91 0.02 225);
+  --campo: oklch(0.99 0.004 220);
+
+  --primaria: oklch(0.46 0.083 228);
+  --primaria-texto: oklch(0.99 0.005 220);
+  --primaria-suave: oklch(0.94 0.035 225);
+  --primaria-suave-texto: oklch(0.38 0.075 230);
+
+  --destaque: oklch(0.69 0.139 235);
+  --destaque-texto: oklch(0.2 0.05 240);
+  --espuma: oklch(0.7 0.045 212);
+
+  --whatsapp: oklch(0.54 0.14 152);
+  --whatsapp-texto: oklch(0.99 0 0);
+  --perigo: oklch(0.52 0.2 27);
+  --anel: oklch(0.69 0.139 235);
+
+  --marca-1: oklch(0.36 0.07 232);
+  --marca-2: oklch(0.5 0.1 226);
+
+  --sombra-cartao:
+    0 1px 2px oklch(0.3 0.05 235 / 0.06), 0 10px 28px -14px oklch(0.3 0.06 235 / 0.22);
+  --sombra-flutuante:
+    0 2px 6px oklch(0.25 0.05 235 / 0.1), 0 18px 40px -12px oklch(0.25 0.06 235 / 0.35);
+
+  --altura-cabecalho: 3.5rem;
+  --altura-navegacao: 4rem;
+}
+
+.dark {
+  --fundo: oklch(0.19 0.025 235);
+  --texto: oklch(0.96 0.01 220);
+  --cartao: oklch(0.235 0.03 235);
+  --cartao-texto: oklch(0.96 0.01 220);
+  --suave: oklch(0.275 0.032 235);
+  --suave-texto: oklch(0.74 0.03 225);
+  --borda: oklch(0.34 0.035 235);
+  --campo: oklch(0.21 0.028 235);
+
+  --primaria: oklch(0.74 0.12 230);
+  --primaria-texto: oklch(0.19 0.04 240);
+  --primaria-suave: oklch(0.3 0.05 232);
+  --primaria-suave-texto: oklch(0.85 0.07 225);
+
+  --destaque: oklch(0.75 0.13 232);
+  --destaque-texto: oklch(0.18 0.04 240);
+
+  --whatsapp: oklch(0.62 0.16 152);
+  --whatsapp-texto: oklch(0.14 0.03 152);
+  --perigo: oklch(0.72 0.17 25);
+
+  --marca-1: oklch(0.3 0.06 233);
+  --marca-2: oklch(0.4 0.085 228);
+
+  --sombra-cartao: 0 1px 2px oklch(0 0 0 / 0.3), 0 10px 28px -14px oklch(0 0 0 / 0.6);
+  --sombra-flutuante: 0 2px 6px oklch(0 0 0 / 0.4), 0 18px 40px -12px oklch(0 0 0 / 0.7);
+}
+
+@theme inline {
+  --color-fundo: var(--fundo);
+  --color-texto: var(--texto);
+  --color-cartao: var(--cartao);
+  --color-cartao-texto: var(--cartao-texto);
+  --color-suave: var(--suave);
+  --color-suave-texto: var(--suave-texto);
+  --color-borda: var(--borda);
+  --color-campo: var(--campo);
+  --color-primaria: var(--primaria);
+  --color-primaria-texto: var(--primaria-texto);
+  --color-primaria-suave: var(--primaria-suave);
+  --color-primaria-suave-texto: var(--primaria-suave-texto);
+  --color-destaque: var(--destaque);
+  --color-destaque-texto: var(--destaque-texto);
+  --color-espuma: var(--espuma);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-texto: var(--whatsapp-texto);
+  --color-perigo: var(--perigo);
+  --color-anel: var(--anel);
+
+  --shadow-cartao: var(--sombra-cartao);
+  --shadow-flutuante: var(--sombra-flutuante);
+
+  --font-sans:
+    'Inter Variable', 'Inter Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+
+  --animate-entrar: entrar 0.28s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Fonte de reserva com métricas ajustadas à Inter: evita deslocamento de layout ao carregar */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica');
+  size-adjust: 107.4%;
+  ascent-override: 90.2%;
+  descent-override: 22.5%;
+  line-gap-override: 0%;
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--borda);
+  }
+
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--altura-cabecalho) + 4.5rem);
+    scrollbar-width: thin;
+    scrollbar-color: var(--espuma) transparent;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: var(--font-sans);
+    font-feature-settings:
+      'cv11' 1,
+      'ss03' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+    /* Texto longo nunca rebenta o layout */
+    overflow-wrap: break-word;
+    hyphens: manual;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  button,
+  [role='button'],
+  summary,
+  label[for],
+  select {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Foco bem visível: teclado, comando de Smart TV e acessibilidade */
+  :focus-visible {
+    outline: 3px solid var(--anel);
+    outline-offset: 3px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background: oklch(0.69 0.139 235 / 0.35);
+  }
+
+  /* Ecrãs grandes e Smart TVs: escala tudo proporcionalmente (a interface usa rem) */
+  @media (min-width: 1600px) {
+    html {
+      font-size: 112.5%;
+    }
+  }
+  @media (min-width: 1920px) {
+    html {
+      font-size: 125%;
+    }
+  }
+  @media (min-width: 2560px) {
+    html {
+      font-size: 150%;
+    }
+  }
+  @media (min-width: 3400px) {
+    html {
+      font-size: 200%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .sem-barra {
+    scrollbar-width: none;
+  }
+  .sem-barra::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fundo-marca {
+    background:
+      radial-gradient(60rem 30rem at 100% -10%, oklch(0.69 0.139 235 / 0.35), transparent 60%),
+      linear-gradient(135deg, var(--marca-1), var(--marca-2));
+  }
+
+  /* Evita renderizar secções fora do ecrã (lista longa de serviços) mantendo a altura estável */
+  .secao-diferida {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 28rem;
+  }
+}
+
+/* Transições suaves entre páginas (navegadores com View Transitions) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.18s;
+  animation-timing-function: ease-out;
+}
+
+@media print {
+  header,
+  nav,
+  footer {
+    display: none !important;
+  }
+}

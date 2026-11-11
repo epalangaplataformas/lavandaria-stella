@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-AO" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>Lavandaria Stella — Catálogo, preços e pedidos por WhatsApp em Viana, Luanda</title>
+    <meta
+      name="description"
+      content="Veja a tabela de preços da Lavandaria Stella (Viana, Luanda) e faça o seu pedido ou reserva de recolha pelo WhatsApp. Lavagem, passagem, secagem e tratamento de roupas com entrega pontual."
+    />
+    <link rel="canonical" href="{{URL_SITE}}/" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+    <meta name="author" content="{{NOME}}" />
+    <meta name="application-name" content="{{NOME}}" />
+    <meta name="geo.region" content="AO-LUA" />
+    <meta name="geo.placename" content="Viana, Luanda" />
+
+    <!-- Tema: aplicado antes da primeira pintura (sem "flash") -->
+    <meta name="theme-color" content="{{COR_FUNDO_CLARO}}" />
+    <meta name="color-scheme" content="light dark" />
+    <!--@script-tema-->
+
+    <!-- Ícones e PWA (o manifesto é injectado pelo vite-plugin-pwa) -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48 32x32" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/icones/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/icones/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Stella" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_AO" />
+    <meta property="og:site_name" content="{{NOME}}" />
+    <meta property="og:title" content="Lavandaria Stella — Preços e pedidos por WhatsApp" />
+    <meta property="og:description" content="{{DESCRICAO}}" />
+    <meta property="og:url" content="{{URL_SITE}}/" />
+    <meta property="og:image" content="{{URL_SITE}}/og-imagem.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logótipo da Lavandaria Stella" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lavandaria Stella — Preços e pedidos por WhatsApp" />
+    <meta name="twitter:description" content="{{DESCRICAO}}" />
+    <meta name="twitter:image" content="{{URL_SITE}}/og-imagem.jpg" />
+
+    <!-- Dados estruturados (schema.org) gerados no build a partir do catálogo -->
+    <!--@json-ld-->
+
+    <!-- Ecrã inicial mínimo: aparece antes do JavaScript e evita saltos de layout -->
+    <style>
+      html {
+        background: {{COR_FUNDO_CLARO}};
+      }
+      html.dark {
+        background: {{COR_FUNDO_ESCURO}};
+      }
+      #arranque {
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        align-content: center;
+        gap: 1rem;
+        font: 600 1rem/1.4 system-ui, sans-serif;
+        color: {{COR_MARCA}};
+      }
+      html.dark #arranque {
+        color: #8fd0f0;
+      }
+      #arranque svg {
+        width: 4rem;
+        height: 4rem;
+        animation: pulsar 1.2s ease-in-out infinite alternate;
+      }
+      @keyframes pulsar {
+        to {
+          transform: scale(1.08);
+          opacity: 0.7;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #arranque svg {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div id="arranque" role="status" aria-live="polite">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="4" y="2" width="40" height="44" rx="9" fill="currentColor" />
+          <circle cx="24" cy="28" r="12.5" fill="#fff" />
+          <circle cx="24" cy="28" r="10" fill="#21a7e4" />
+          <rect x="29" y="8" width="7" height="3" rx="1.5" fill="#fff" />
+          <circle cx="13" cy="9.5" r="1.6" fill="#fff" />
+          <circle cx="19" cy="9.5" r="1.6" fill="#fff" />
+        </svg>
+        <span>Lavandaria Stella</span>
+      </div>
+    </div>
+    <!--@noscript-->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
